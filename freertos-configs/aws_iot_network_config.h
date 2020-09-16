@@ -40,11 +40,7 @@
  * in "aws_iot_network.h"
  */
 
-#ifdef CONFIG_IDF_TARGET_ESP32
 #define configSUPPORTED_NETWORKS    ( AWSIOT_NETWORK_TYPE_WIFI | AWSIOT_NETWORK_TYPE_BLE )
-#elif CONFIG_IDF_TARGET_ESP32S2
-#define configSUPPORTED_NETWORKS    ( AWSIOT_NETWORK_TYPE_WIFI )
-#endif
 
 /**
  * @brief Configuration flag which is used to enable one or more network interfaces for a board.
@@ -56,6 +52,6 @@
  *
  */
 
-#define configENABLED_NETWORKS      ( AWSIOT_NETWORK_TYPE_WIFI )
+#define configENABLED_NETWORKS    ( AWSIOT_NETWORK_TYPE_WIFI | AWSIOT_NETWORK_TYPE_BLE )
 
 #endif /* CONFIG_FILES_AWS_IOT_NETWORK_CONFIG_H_ */

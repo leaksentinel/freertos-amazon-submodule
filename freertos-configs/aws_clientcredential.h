@@ -1,5 +1,5 @@
 /*
- * Amazon FreeRTOS V201908.00
+ * Amazon FreeRTOS V201906.00 Major
  * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -31,14 +31,14 @@
  *
  * @todo Set this to the fully-qualified DNS name of your MQTT broker.
  */
-#define clientcredentialMQTT_BROKER_ENDPOINT         ""
+#define clientcredentialMQTT_BROKER_ENDPOINT    "a3cj4nddadi7jo-ats.iot.us-east-1.amazonaws.com"
 
 /*
  * @brief Host name.
  *
  * @todo Set this to the unique name of your IoT Thing.
  */
-#define clientcredentialIOT_THING_NAME               ""
+char clientcredentialIOT_THING_NAME[ 64 ];
 
 /*
  * @brief Port number the MQTT broker is using.

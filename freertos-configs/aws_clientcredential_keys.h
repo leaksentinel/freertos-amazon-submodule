@@ -1,5 +1,5 @@
 /*
- * Amazon FreeRTOS V201908.00
+ * Amazon FreeRTOS V201906.00 Major
  * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -37,7 +37,7 @@
  * "...base64 data...\n"\
  * "-----END CERTIFICATE-----\n"
  */
-#define keyCLIENT_CERTIFICATE_PEM                   ""
+#define keyCLIENT_CERTIFICATE_PEM    " "
 
 /*
  * @brief PEM-encoded issuer certificate for AWS IoT Just In Time Registration (JITR).
@@ -58,7 +58,28 @@
  * "...base64 data...\n"\
  * "-----END CERTIFICATE-----\n"
  */
-#define keyJITR_DEVICE_CERTIFICATE_AUTHORITY_PEM    ""
+#define keyJITR_DEVICE_CERTIFICATE_AUTHORITY_PEM                         \
+    "-----BEGIN CERTIFICATE-----\n"                                      \
+    "MIIDeTCCAmGgAwIBAgIJAJLkbaXQuzohMA0GCSqGSIb3DQEBCwUAMFMxCzAJBgNV\n" \
+    "BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlQYWxvIEFsdG8x\n" \
+    "GzAZBgNVBAoMEkxlYWtTZW50aW5lbCwgSW5jLjAeFw0xOTA4MDkxNDE5NTdaFw0y\n" \
+    "MjA1MjkxNDE5NTdaMFMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlh\n" \
+    "MRIwEAYDVQQHDAlQYWxvIEFsdG8xGzAZBgNVBAoMEkxlYWtTZW50aW5lbCwgSW5j\n" \
+    "LjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJznzM3oC3KRKsfiJCFM\n" \
+    "ritAzI3BW2dJfv6lTIVdxi+vups465h+tIOYJpXuRGKkOFOHAv4AO/vSWgwjqSh4\n" \
+    "pNjAzSZulXNzr6kI39iDpItXk9vmWi5X3nQWxdbzGnhOzQesDIYYjIfrqurFDEnX\n" \
+    "uuVnRTLbWeID2qLVoMacFRLqFbKgQL6JBaLm10DXaFSl1NwabhpJxR4orhX4Ltys\n" \
+    "SBHI+jIL6y4Htzp48b3ic42qbn81cKNoA525SYYF182A2wzxQj6k+jNHYH61b+Om\n" \
+    "DOFAee3VrYKE2OkpUJVZqkHV6DjHirU3ghSYhf6CR5ec06/8kAlSV1x53oJ3VAWI\n" \
+    "F18CAwEAAaNQME4wHQYDVR0OBBYEFKr1F67igkDHbAeKgvfmO8PR1SZSMB8GA1Ud\n" \
+    "IwQYMBaAFKr1F67igkDHbAeKgvfmO8PR1SZSMAwGA1UdEwQFMAMBAf8wDQYJKoZI\n" \
+    "hvcNAQELBQADggEBAFvCIZOperd7oMekTMxPBQXc30dCORAuIdJn6EKPe1waU5xC\n" \
+    "y/bYyA7bU1OwLlqyrAFiC1GwqbtpGtkxFgFaCjCWt2IxStfKEwf6Cpm+20eKWE3P\n" \
+    "9RPY3jOvdOHAjDlwiujIdPqcr1fGWD039prh+LpFVbWIgocbJ/zEtbWXBEhibXur\n" \
+    "4c3sbd8JSx2PVGLrodMenJc1VoiVn4eTZ2aA6cxOC1ZMt0CByEQE2L6sjPiyI6k9\n" \
+    "uxHyrMKOj5mGfwzDLdPRatwL2j0flIliHGh76g1rvz5l5WQ1m8D1XtJ+WOroMhA9\n" \
+    "wi6hhE32nyLFp+HrOlPw3G5LOgco+HqGuO3I54c=\n"                         \
+    "-----END CERTIFICATE-----\n"
 
 /*
  * @brief PEM-encoded client private key.
@@ -71,6 +92,6 @@
  * "...base64 data...\n"\
  * "-----END RSA PRIVATE KEY-----\n"
  */
-#define keyCLIENT_PRIVATE_KEY_PEM                   ""
+#define keyCLIENT_PRIVATE_KEY_PEM    " "
 
 #endif /* AWS_CLIENT_CREDENTIAL_KEYS_H */

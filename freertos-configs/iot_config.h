@@ -36,7 +36,7 @@
 
 /* Shadow demo configuration. The demo publishes periodic Shadow updates and responds
  * to changing Shadows. */
-#define AWS_IOT_DEMO_SHADOW_UPDATE_COUNT        ( 20 )   /* Number of updates to publish. */
+#define AWS_IOT_DEMO_SHADOW_UPDATE_COUNT        ( 1 )    /* Number of updates to publish. */
 #define AWS_IOT_DEMO_SHADOW_UPDATE_PERIOD_MS    ( 3000 ) /* Period of Shadow updates. */
 
 /* Library logging configuration. IOT_LOG_LEVEL_GLOBAL provides a global log
@@ -51,7 +51,6 @@
 #define IOT_LOG_LEVEL_MQTT                      IOT_LOG_INFO
 #define AWS_IOT_LOG_LEVEL_SHADOW                IOT_LOG_INFO
 #define AWS_IOT_LOG_LEVEL_DEFENDER              IOT_LOG_INFO
-#define IOT_LOG_LEVEL_HTTPS                     IOT_LOG_INFO
 
 /* Platform thread stack size and priority. */
 #define IOT_THREAD_DEFAULT_STACK_SIZE           6000
@@ -64,15 +63,15 @@
 /* Provide additional serializer initialization functions. */
 extern bool IotBleMqtt_InitSerialize( void );
 extern void IotBleMqtt_CleanupSerialize( void );
-#ifdef CONFIG_IDF_TARGET_ESP32
 #define _IotMqtt_InitSerializeAdditional       IotBleMqtt_InitSerialize
 #define _IotMqtt_CleanupSerializeAdditional    IotBleMqtt_CleanupSerialize
-#endif
 
 /* Provide a function to retrieve the serializer function pointers in the MQTT demo. */
 typedef struct IotMqttSerializer IotMqttSerializer_t;
 extern const IotMqttSerializer_t * demoGetMqttSerializer( void );
-#define IOT_DEMO_MQTT_SERIALIZER    demoGetMqttSerializer()
+#define IOT_DEMO_MQTT_SERIALIZER               demoGetMqttSerializer()
+#define IOT_NETWORK_RECEIVE_TASK_STACK_SIZE    4 * 512
+#define AWS_IOT_MQTT_ENABLE_METRICS            ( 0 )
 
 /* Include the common configuration file for FreeRTOS. */
 #include "iot_config_common.h"
