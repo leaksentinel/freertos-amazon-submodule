@@ -14,10 +14,29 @@ project(freertos_examples)
 
 # Tell IDF build to link against this target.
 set(IDF_PROJECT_EXECUTABLE afr_demo)
-get_filename_component(
-    IDF_EXECUTABLE_SRCS
-    "src/main.c" ABSOLUTE
+# get_filename_component(
+#    IDF_EXECUTABLE_SRCS
+#    "src/main.c" ABSOLUTE
+# )
+
+aux_source_directory("./src" SRC_LIST)
+
+foreach (src ${SRC_LIST})
+    get_filename_component(
+        SRC_FILE
+        ${src} ABSOLUTE
     )
+    list(APPEND IDF_EXECUTABLE_SRCS ${SRC_FILE})
+endforeach(src ${SRC_LIST})
+
+#    "src/ls_custom_ble.c"
+#    "src/ls_demo_runner.c" ABSOLUTE
+#    "src/ls_device_state.c" ABSOLUTE
+#    "src/ls_gpio.c" ABSOLUTE
+#    "src/ls_iot_runner.c" ABSOLUTE
+#    "src/ls_ota.c" ABSOLUTE
+#    "src/ls_shadow.c" ABSOLUTE
+#    )
 
 # Add some extra components. IDF_EXTRA_COMPONENT_DIRS is an variable used by ESP-IDF
 # to collect extra components.
@@ -42,4 +61,6 @@ add_subdirectory(freertos)
 
 # Link against the mqtt demo so that we can use it. Dependencies of this demo are transitively
 # linked.
-target_link_libraries(afr_demo PRIVATE AFR::demo_mqtt idf::foo)
+# target_link_libraries(afr_demo PRIVATE AFR::demo_mqtt idf::foo)
+
+target_link_libraries(afr_demo PRIVATE AFR::shadow AFR::ota AFR::wifi AFR::ble AFR::ble_wifi_provisioning AFR::demo_ble_numeric_comparison AFR::demo_wifi_provisioning)
